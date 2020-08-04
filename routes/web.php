@@ -21,13 +21,13 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
-	Route::middleware(['admin'])->group(function () {
+ Route::middleware(['admin'])->group(function () {
 
 		Route::get('dashboard', 'DashboardController@index');
 	});
 
 	Route::middleware(['teacher'])->group(function () {
-		
+
 		Route::get('panel', 'DashboardController@panel');
 		Route::get('parents' , 'UsersController@parents');
 	});
@@ -47,6 +47,3 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('change', 'UsersController@cp');
 	Route::post('ch','UsersController@reset')->name('reset');
 });
-
-
-

@@ -61,7 +61,7 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
-  
+
   <div class="col">
     <div class="card">
       <!-- Card header -->
@@ -105,7 +105,7 @@
         </table>
       </div>
       <!-- Card footer -->
-      
+
     </div>
   </div>
 
@@ -113,9 +113,9 @@
      <div class="modal-dialog modal-lg modal-dialog-top" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">New Logbook Form</h5> 
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
-                  <span aria-hidden="true">&times;</span> 
+                 <h5 class="modal-title" id="exampleModalLabel">New Logbook Form</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
                 </button>
              </div>
              <div class="modal-body">
@@ -134,7 +134,7 @@
                          <div id="step-1">
                              <div class="row">
                                  <div class="col-md-12">
-                                      <p><b>Student name : </b></p> 
+                                      <p><b>Student name : </b></p>
                                       <select name="id" class="form-control">
                                         <option value="">Select student</option>
                                         @if($students != '')
@@ -147,18 +147,18 @@
                                   </div>
                              </div>
                              <div class="row">
-                                <div class="col-md-6"> 
+                                <div class="col-md-6">
                                   <p><b>Arrival date : </b></p>
-                                  <input type="date" class="form-control" name="date" required> 
+                                  <input type="date" class="form-control" name="date" required>
                                 </div>
-                                <div class="col-md-6"> 
+                                <div class="col-md-6">
                                   <p><b>Arrival time : </b></p>
-                                  <input type="time" class="form-control" name="time" required> 
+                                  <input type="time" class="form-control" name="time" required>
                                 </div>
                              </div>
                              <div class="row mt-3">
-                              <div class="col-md-12"> 
-                                  <p><b>Send by : </b></p>
+                              <div class="col-md-12">
+                                  <p><b>Send By: </b></p>
                                   <div class="radio">
                                     <label><input type="radio" name="sender" value="Parent" checked> Parent</label>
                                   </div>
@@ -167,16 +167,16 @@
                                   </div>
                                   <div class="radio">
                                     <label><input type="radio" name="sender" value="Caretaker"> Caretaker</label>
-                                  </div> 
+                                  </div>
                                   <div class="radio">
                                     <label><input type="radio" name="sender" value="Others"> Others</label>
-                                  </div> 
+                                  </div>
                               </div>
                              </div>
                          </div>
                          <div id="step-2">
                              <div class="row">
-                                <div class="col-md-6"> 
+                                <div class="col-md-6">
                                   <p>Is your child healthy?</p>
                                   <div class="radio">
                                     <label><input type="radio" name="is_healthy" value="yes" checked> Yes</label>
@@ -185,8 +185,8 @@
                                     <label><input type="radio" name="is_healthy" value="no"> No</label>
                                   </div>
                                 </div>
-                                <div class="col-md-6"> 
-                                  <p>If no, check related</p>
+                                <div class="col-md-6">
+                                  <p>If no, check related:</p>
                                    <div class="checkbox">
                                     <label><input type="checkbox" name="illness[]" value="Cough"> Cough</label>
                                   </div>
@@ -195,70 +195,76 @@
                                   </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="illness[]" value="Flu"> Flu</label>
-                                  </div> 
+                                  </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="illness[]" value="Others"> Others</label>
-                                  </div> 
+                                  </div>
                                 </div>
                              </div>
                              <div class="row mt-3">
-                                <div class="col-md-12"> 
-                                  <p>Senarai Barangan yang dibawa</p>
-                                  <textarea name="equipment" class="form-control" rows="3"></textarea>
+                                <div class="col-md-12">
+                                  <p>List of Items Brought (If Any):</p>
+                                  <textarea name="equipment" class="form-control" placeholder="E.g New Towel, New Clothes, Extra Diapers" rows="3"></textarea>
                                 </div>
                              </div>
                              <div class="row mt-3">
-                                <div class="col-md-12"> 
-                                  <p>Senarai Ubatan yang dibawa</p>
-                                  <textarea name="medicine" class="form-control" rows="3"></textarea>
+                                <div class="col-md-12">
+                                  <p>List of Medications (If Any):</p>
+                                  <textarea name="medicine" class="form-control" placeholder="E.g Paracetamol Syrup" rows="3"></textarea>
+                                </div>
+                             </div>
+                             <div class="row mt-3">
+                                <div class="col-md-12">
+                                  <p>List of Items to Bring (If Any):</p>
+                                  <textarea name="medicine" class="form-control" placeholder="E.g Baby Biscuit" rows="3"></textarea>
                                 </div>
                              </div>
                          </div>
                          <div id="step-3" class="">
                              <div class="row">
-                                <div class="col-md-6"> 
+                                <div class="col-md-6">
                                   <p>Milk (first take and second take): </p>
                                   <input type="time" name="milk_1" class="form-control">
                                 </div>
-                                <div class="col-md-6"> 
+                                <div class="col-md-6">
                                   <p style="opacity: 0;">Milk 2</p>
                                   <input type="time" name="milk_2" class="form-control">
                                 </div>
                              </div>
                              <div class="row mt-3">
-                                <div class="col-md-4"> 
-                                  <p>Breakfast : </p>
-                                  <input type="text" class="form-control" name="breakfast"> 
+                                <div class="col-md-4">
+                                  <p>Breakfast: </p>
+                                  <input type="text" class="form-control" name="breakfast" placeholder="E.g Cereal">
                                 </div>
-                                <div class="col-md-4"> 
-                                  <p>Lunch : </p>
-                                  <input type="text" class="form-control" name="lunch"> 
+                                <div class="col-md-4">
+                                  <p>Lunch: </p>
+                                  <input type="text" class="form-control" name="lunch" placeholder="E.g Chicken Rice">
                                 </div>
-                                <div class="col-md-4"> 
-                                  <p>Tea-time : </p>
-                                  <input type="text" class="form-control" name="teatime"> 
+                                <div class="col-md-4">
+                                  <p>Snack: </p>
+                                  <input type="text" class="form-control" name="teatime" placeholder="E.g Biscuits & Milo">
                                 </div>
                              </div>
                          </div>
                          <div id="step-4">
                              <div class="row">
-                                <div class="col-md-12"> 
-                                  <p>Circle time : </p>
-                                  <input type="text" name="circle_time" class="form-control">
+                                <div class="col-md-12">
+                                  <p>Circle Time: </p>
+                                  <input type="text" name="circle_time" class="form-control" placeholder="E.g Messy Play">
                                 </div>
                              </div>
                              <div class="row mt-3">
-                                <div class="col-md-12"> 
-                                  <p>Outdoor</p>
-                                  <input type="text" name="outdoor" class="form-control">
+                                <div class="col-md-12">
+                                  <p>Outdoor Activities:</p>
+                                  <input type="text" name="outdoor" class="form-control" placeholder="E.g Playground">
                                 </div>
                              </div>
                          </div>
 
                          <div id="step-5">
                              <div class="row">
-                                <div class="col-md-3"> 
-                                  <p>Dypers : </p>
+                                <div class="col-md-3">
+                                  <p>Diapers Change: </p>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="dypers[]" value="9-12"> 9 - 12 Noon</label>
                                   </div>
@@ -267,16 +273,16 @@
                                   </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="dypers[]" value="3-6"> 3 - 6 Evening</label>
-                                  </div> 
+                                  </div>
                                 </div>
-                                <div class="col-md-6"> 
-                                  <p>Additional info (regarding dypers) :</p>
-                                  <textarea name="dypers_info" rows="3" class="form-control"></textarea>
+                                <div class="col-md-6">
+                                  <p>Additional Info (Regarding Diapers) :</p>
+                                  <textarea name="dypers_info" rows="3" class="form-control" placeholder="E.g Diapers need to change regularly.."></textarea>
                                 </div>
                              </div>
                              <div class="row mt-3">
-                                <div class="col-md-4"> 
-                                  <p>Brush Teeth</p>
+                                <div class="col-md-4">
+                                  <p>Dental Care:</p>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="brush_teeth[]" value="morning"> Morning</label>
                                   </div>
@@ -285,20 +291,20 @@
                                   </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="brush_teeth[]" value="evening"> Evening</label>
-                                  </div> 
+                                  </div>
                                 </div>
-                                <div class="col-md-4"> 
-                                  <p>Bath : </p>
+                                <div class="col-md-4">
+                                  <p>Hygienic Care:</p>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="bath[]" value="morning"> Morning</label>
                                   </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="bath[]" value="evening"> Evening</label>
-                                  </div> 
+                                  </div>
                                 </div>
 
-                                <div class="col-md-4"> 
-                                  <p>Sleep : </p>
+                                <div class="col-md-4">
+                                  <p>Sleeping Time:</p>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="sleep[]" value="9-12"> 9 - 12 Noon</label>
                                   </div>
@@ -307,15 +313,15 @@
                                   </div>
                                   <div class="checkbox">
                                     <label><input type="checkbox" name="sleep[]" value="3-6"> 3 - 6 Evening</label>
-                                  </div> 
+                                  </div>
                                 </div>
                              </div>
                          </div>
                          <div id="step-6" class="">
                              <div class="row">
-                                <div class="col-md-12"> 
-                                  <p>Additional notes :</p>
-                                  <textarea name="additional_note" rows="3" class="form-control"></textarea><br>
+                                <div class="col-md-12">
+                                  <p>Additional Notes:</p>
+                                  <textarea name="additional_note" rows="3" class="form-control" placeholder="E.g Your child is active and participated in every activities.."></textarea><br>
                                 </div>
                              </div>
                              <div class="row">
@@ -331,7 +337,7 @@
          </div>
      </div>
   </div>
-      
+
 </div>
 
 <script>

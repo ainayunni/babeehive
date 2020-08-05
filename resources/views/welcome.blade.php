@@ -46,7 +46,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="{{ url('/profile') }}"
+            <a class="navbar-brand logo_h" href="{{ url('/') }}"
               ><img src="img/logobanner3.png" alt=""
             /></a>
             <button
@@ -68,7 +68,7 @@
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                  <a class="nav-link" href="{{ url('/') }}">Home</a>
                 </li>
                 <!-- if auth users, display my profile tab in navbar -->
                 @auth

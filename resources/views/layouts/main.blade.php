@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Ayu</title>
+  <title>Babee Hive</title>
   <!-- Favicon -->
   <link rel="icon" href="{{ asset('themes/img/brand/favicon.png') }}" type="image/png">
   <!-- Fonts -->
@@ -110,7 +110,7 @@
     @yield('content')
   </div>
   <!-- Argon Scripts -->
-  
+
   <!-- Optional JS -->
   <script src="{{ asset('themes/vendor/chart.js/dist/Chart.min.js') }}"></script>
   <script src="{{ asset('themes/vendor/chart.js/dist/Chart.extension.js') }}"></script>

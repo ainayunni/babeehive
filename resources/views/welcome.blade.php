@@ -2,523 +2,479 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel="icon" href="img/newbee.png" type="image/png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Grayrids">
     <title>Babee Hive</title>
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css">
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/flaticon.css" />
-    <link rel="stylesheet" href="css/themify-icons.css" />
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
-    <!-- main css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/line-icons.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/nivo-lightbox.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
   </head>
-
   <body>
-    <!--================ Start Header Menu Area =================-->
-    <header class="header_area">
-      <div class="main_menu">
-        <!-- <div class="search_input" id="search_input_box">
-          <div class="container">
-            <form class="d-flex justify-content-between" method="" action="">
-              <input
-                type="text"
-                class="form-control"
-                id="search_input"
-                placeholder="Search Here"
-              />
-              <button type="submit" class="btn"></button>
-              <span
-                class="ti-close"
-                id="close_search"
-                title="Close Search"
-              ></span>
-            </form>
-          </div>
-        </div> -->
 
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="{{ url('/') }}"
-              ><img src="img/logobanner3.png" alt=""
-            /></a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="icon-bar"></span> <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+    <!-- Header Section Start -->
+    <header id="hero-area" data-stellar-background-ratio="0.5">
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a href="{{ url('/') }}" class="navbar-brand"><img class="img-fulid" src="img/logobanner.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="lnr lnr-menu"></i>
             </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div
-              class="collapse navbar-collapse offset"
-              id="navbarSupportedContent"
-            >
-              <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{ url('/') }}">Home</a>
-                </li>
-                <!-- if auth users, display my profile tab in navbar -->
-                @auth
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/profile') }}">My profile</a>
-                </li>
-                @endauth
-                <!-- if not auth users / guest, display login and register in navbar -->
-                @guest
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-                @endguest
-                <!-- @if (Route::has('login'))
-                    <div class="top-right links">
-                        @auth
-                            <a href="{{ url('/home') }}">Home</a>
-                        @else
-                            <a href="{{ route('login') }}">Login</a>
+          </div>
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="{{ url('/') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#services">Introduction</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#features">Programmes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#team">Team</a>
+              </li>
+              @auth
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/profile') }}">My profile</a>
+              </li>
+              @endauth
+              <!-- if not auth users / guest, display login and register in navbar -->
+              @guest
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+              </li>
+              @endguest
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif -->
-                <!-- <li class="nav-item">
-                  <a href="#" class="nav-link search" id="search">
-                    <i class="ti-search"></i>
-                  </a>
-                </li> -->
-              </ul>
+        <!-- Mobile Menu Start -->
+        <ul class="mobile-menu">
+           <li>
+              <a class="page-scroll" href="#hero-area">Home</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#services">Introduction</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#features">Programmes</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#team">Team</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#contact">Contact</a>
+            </li>
+        </ul>
+        <!-- Mobile Menu End -->
+
+      </nav>
+      <!-- Navbar End -->
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-10">
+            <div class="contents text-center">
+              <!-- <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">BABEE HIVE</h1>
+              <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a> -->
             </div>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
-    <!--================ End Header Menu Area =================-->
+    <!-- Header Section End -->
 
-    <!--================ Start Home Banner Area =================-->
-    <section class="home_banner_area">
-      <div class="banner_inner">
-
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="banner_content text-center">
-                <p class="text-uppercase">
-                  <!-- <a href="#" class="primary-btn2 mb-3 mb-sm-0">learn more</a>
-                  <a href="#" class="primary-btn ml-sm-3 ml-0">see course</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--================ End Home Banner Area =================-->
-
-    <!--================ Start Feature Area =================-->
-    <section class="feature_area section_gap_top">
+    <!-- Introduction Section Start -->
+    <section id="services" class="section">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="main_title">
-              <h2 class="mb-3">PROGRAMMES OFFERED</h2>
-              <p>
-                Education is the passport for the future, for tomorrow belongs to those who prepare it today - Malcolm X
-              </p>
-            </div>
-          </div>
+        <div class="section-header">
+          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">What is Babee Hive?</h2>
+          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">It is a reporting system developed by Ain Ayunni. <br> Specifically for a kindergarten.</p>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">In-Utero</h4>
-                <p>
-                 Explore the effects of prematurity on babies and children, including the physical effects on skin, bone, sensory organs, digestive system, heart, lungs and central nervous system.
-                </p>
+          <div class="col-md-4 col-sm-6">
+            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+              <div class="icon">
+                <i class="lnr lnr-laptop"></i>
+              </div>
+              <h4>Easy Reporting</h4>
+              <p>Easier to log report for the teachers</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
+              <div class="icon">
+                <i class="lnr lnr-laptop-phone"></i>
+              </div>
+              <h4>Report Display</h4>
+              <p>Report will be displayed to the parents</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
+              <div class="icon">
+                <i class="lnr lnr-tablet"></i>
+              </div>
+              <h4>Save Cost</h4>
+              <p>No need to use the traditional system of logbook report</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Introduction Section End -->
+
+    <!-- Programmes Section Start -->
+    <section id="features" class="section" data-stellar-background-ratio="0.2">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Programmes</h2>
+          <hr class="lines">
+          <p class="section-subtitle"></p>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-12 col-xs-12">
+            <div class="container">
+              <div class="row">
+                 <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                    <span class="icon">
+                      <i class="lnr lnr-cloud"></i>
+                    </span>
+                    <div class="text">
+                      <h4>Baby School</h4>
+                      <p>  It is a world of wonder out there for babies.
+                        Everything they touch, see, hear, smell or taste is a unique and magical experience.</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                    <span class="icon">
+                      <i class="lnr lnr-sun"></i>
+                    </span>
+                    <div class="text">
+                      <h4>Discovery School</h4>
+                      <p>Your little one is discovering more and more each day. Our approach to teaching this age as they navigate their world uses music, art, and movement while nurturing their progress toward preschool.</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                    <span class="icon">
+                      <i class="lnr lnr-moon"></i>
+                    </span>
+                    <div class="text">
+                      <h4>Play-School</h4>
+                      <p>  Children learn best in an interactive environment where they can play, have fun, sing songs and use their imaginations.</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                    <span class="icon">
+                      <i class="lnr lnr-star"></i>
+                    </span>
+                    <div class="text">
+                      <h4>Pre-School</h4>
+                      <p>Children will develop self-confidence and self awareness, independence, responsibility, tolerance, concentration and a joy of learning.</p>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
+          <div class="col-lg-4 col-xs-12">
+            <div class="show-box">
+              <img class="img-fulid" src="img/features/feature.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Programmes Section End -->
 
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Baby-School</h4>
-                <p>
-                  It is a world of wonder out there for babies.
-                  Everything they touch, see, hear, smell or taste is a unique and magical experience.
-                </p>
+    <!-- Start Video promo Section -->
+    <section class="video-promo section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+              <div class="video-promo-content text-center">
+                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Our Promotional video</h2>
+                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms"></p>
+                <a href="https://www.youtube.com/watch?v=BxriN9ysHHc" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Video Promo Section -->
+
+    <!-- Team section Start -->
+    <section id="team" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Team</h2>
+          <hr class="lines">
+          <p class="section-subtitle">Our line up! <br> We teach you about life</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team1.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Teacher Ayu</h4>
+                  <p>Mathematics Teacher</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Discovery-School</h4>
-                <p>
-                  Your little one is discovering more and more each day. Our approach to teaching this age as they navigate their world uses music, art, and movement while nurturing their progress toward preschool.
-                </p>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team2.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Sir Nazren</h4>
+                  <p>Sports Teacher</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Play-School</h4>
-                <p>
-                  Children learn best in an interactive environment where they can play, have fun, sing songs and use their imaginations.
-                </p>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img src="img/team/team3.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Teacher Liyana</h4>
+                  <p>English Teacher</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Pre-School</h4>
-                <p>
-                  Children will develop self-confidence and self awareness, independence, responsibility, tolerance, concentration and a joy of learning.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="single_feature">
-              <div class="icon"><span class="flaticon-"></span></div>
-              <div class="desc">
-                <h4 class="mt-3 mb-2">Transit</h4>
-                <p>
-                  We care and we protect.to provide a safe & convenient way for your KIDS to travel to School/Home or to a Kindergarten/Daycare/Tuition Centre.
-                </p>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="single-team">
+              <img class="img-fulid" src="img/team/team4.jpg" alt="">
+              <div class="team-details">
+                <div class="team-inner">
+                  <h4 class="team-title">Teacher Auni</h4>
+                  <p>Science Teacher</p>
+                  <ul class="social-list">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--================ End Feature Area =================-->
+    <!-- Team section End -->
 
-    <!--================ Start Popular Courses Area =================-->
-
-    <!--================ End Testimonial Area =================-->
-
-    <!--================ Start footer Area  =================-->
-    <footer class="new_footer_area bg_color">
-            <div class="new_footer_top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                                <p>Say hello to us!</p>
-                                <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                                    <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                    <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-                                    <p class="mchimp-errmessage" style="display: none;"></p>
-                                    <p class="mchimp-sucmessage" style="display: none;"></p>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <!-- <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Download</h3>
-                                <ul class="list-unstyled f_list">
-                                    <li><a href="#">Company</a></li>
-                                    <li><a href="#">Android App</a></li>
-                                    <li><a href="#">ios App</a></li>
-                                    <li><a href="#">Desktop</a></li>
-                                    <li><a href="#">Projects</a></li>
-                                    <li><a href="#">My tasks</a></li>
-                                </ul>
-                            </div> -->
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <!-- <h3 class="f-title f_600 t_color f_size_18">Help</h3>
-                                <ul class="list-unstyled f_list">
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Term &amp; conditions</a></li>
-                                    <li><a href="#">Reporting</a></li>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Support Policy</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                </ul> -->
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                                <!-- <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                                <div class="f_social_icon">
-                                    <a href="#" class="fab fa-facebook"></a>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                    <a href="#" class="fab fa-linkedin"></a>
-                                    <a href="#" class="fab fa-pinterest"></a>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
+    <!-- testimonial Section Start -->
+    <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-12">
+            <div class="touch-slider owl-carousel owl-theme">
+              <div class="testimonial-item">
+                <img src="img/testimonial/customer1.jpg" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
+                  <h3>Jone Deam</h3>
+                  <span>Fondor of Jalmori</span>
                 </div>
-                <div class="footer_bg">
-                    <div class="footer_bg_one"></div>
-                    <div class="footer_bg_two"></div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/testimonial/customer2.jpg" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
+                  <h3>Oidila Matik</h3>
+                  <span>President Lexo Inc</span>
                 </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/testimonial/customer3.jpg" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
+                  <h3>Alex Dattilo</h3>
+                  <span>CEO Optima Inc</span>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <img src="img/testimonial/customer4.jpg" alt="Client Testimonoal" />
+                <div class="testimonial-text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
+                  <h3>Paul Kowalsy</h3>
+                  <span>CEO & Founder</span>
+                </div>
+              </div>
             </div>
-            <div class="footer_bottom">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-sm-7">
-                            <p class="mb-0 f_400">Babee Hive 2020 All rights reserved.</p>
-                        </div>
-                        <div class="col-lg-6 col-sm-5 text-right">
-                            <p> <i class="icon_heart"></i>  <a href="#"></a></p>
-                        </div>
-                    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- testimonial Section Start -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="section" data-stellar-background-ratio="-0.2">
+      <div class="contact-form">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <div class="contact-us">
+                <h3>Contact With us</h3>
+                <div class="contact-address">
+                  <p>Babee Hive, Putrajaya, Malaysia </p>
+                  <p class="phone">Phone: <span>(+601 123 4567)</span></p>
+                  <p class="email">E-mail: <span>(admin@mailsac.com)</span></p>
                 </div>
+                <div class="social-icons">
+                  <ul>
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </footer>
-        <style> body {
-    background: #fbfbfd;
-}
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <div class="contact-block">
+                <form id="contactForm">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->
 
-.new_footer_area {
-    background: #fbfbfd;
-}
+    <!-- Footer Section Start -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- Footer Links -->
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <ul class="footer-links">
+              <li>
+                <a href="#">Homepage</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">About Us</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="copyright">
+              <p>All copyrights reserved &copy; 2018 - Designed & Developed by <a rel="nofollow" href="https://uideck.com">UIdeck</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
 
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="lnr lnr-arrow-up"></i>
+    </a>
 
-.new_footer_top {
-    padding: 120px 0px 270px;
-    position: relative;
-      overflow-x: hidden;
-}
-.new_footer_area .footer_bottom {
-    padding-top: 5px;
-    padding-bottom: 50px;
-}
-.footer_bottom {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 20px;
-    color: #7f88a6;
-    padding: 27px 0px;
-}
-.new_footer_top .company_widget p {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 28px;
-    color: #6a7695;
-    margin-bottom: 20px;
-}
-.new_footer_top .company_widget .f_subscribe_two .btn_get {
-    border-width: 1px;
-    margin-top: 20px;
-}
-.btn_get_two:hover {
-    background: transparent;
-    color: #5e2ced;
-}
-.btn_get:hover {
-    color: #fff;
-    background: #6754e2;
-    border-color: #6754e2;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
-    text-decoration: none;
-    outline: none;
-}
+    <div id="loader">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
 
-
-
-.new_footer_top .f_widget.about-widget .f_list li a:hover {
-    color: #5e2ced;
-}
-.new_footer_top .f_widget.about-widget .f_list li {
-    margin-bottom: 11px;
-}
-.f_widget.about-widget .f_list li:last-child {
-    margin-bottom: 0px;
-}
-.f_widget.about-widget .f_list li {
-    margin-bottom: 15px;
-}
-.f_widget.about-widget .f_list {
-    margin-bottom: 0px;
-}
-.new_footer_top .f_social_icon a {
-    width: 44px;
-    height: 44px;
-    line-height: 43px;
-    background: transparent;
-    border: 1px solid #e2e2eb;
-    font-size: 24px;
-}
-.f_social_icon a {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    font-size: 14px;
-    line-height: 45px;
-    color: #858da8;
-    display: inline-block;
-    background: #ebeef5;
-    text-align: center;
-    -webkit-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-}
-.ti-facebook:before {
-    content: "\e741";
-}
-.ti-twitter-alt:before {
-    content: "\e74b";
-}
-.ti-vimeo-alt:before {
-    content: "\e74a";
-}
-.ti-pinterest:before {
-    content: "\e731";
-}
-
-.btn_get_two {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background: #5e2ced;
-    border-color: #5e2ced;
-    color: #fff;
-}
-
-.btn_get_two:hover {
-    background: transparent;
-    color: #5e2ced;
-}
-
-.new_footer_top .f_social_icon a:hover {
-    background: #5e2ced;
-    border-color: #5e2ced;
-  color:white;
-}
-.new_footer_top .f_social_icon a + a {
-    margin-left: 4px;
-}
-.new_footer_top .f-title {
-    margin-bottom: 30px;
-    color: #263b5e;
-}
-.f_600 {
-    font-weight: 600;
-}
-.f_size_18 {
-    font-size: 18px;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: #4b505e;
-}
-.new_footer_top .f_widget.about-widget .f_list li a {
-    color: #6a7695;
-}
-
-
-.new_footer_top .footer_bg {
-    position: absolute;
-    bottom: 0;
-    background: url("http://droitthemes.com/html/saasland/img/seo/footer_bg.png") no-repeat scroll center 0;
-    width: 100%;
-    height: 266px;
-}
-
-.new_footer_top .footer_bg .footer_bg_one {
-    background: url("https://1.bp.blogspot.com/-mvKUJFGEc-k/XclCOUSvCnI/AAAAAAAAUAE/jnBSf6Fe5_8tjjlKrunLBXwceSNvPcp3wCLcBGAsYHQ/s1600/volks.gif") no-repeat center center;
-    width: 330px;
-    height: 105px;
-  background-size:100%;
-    position: absolute;
-    bottom: 0;
-    left: 30%;
-    -webkit-animation: myfirst 22s linear infinite;
-    animation: myfirst 22s linear infinite;
-}
-
-.new_footer_top .footer_bg .footer_bg_two {
-    background: url("https://1.bp.blogspot.com/-hjgfxUW1o1g/Xck--XOdlxI/AAAAAAAAT_4/JWYFJl83usgRFMvRfoKkSDGd--_Sv04UQCLcBGAsYHQ/s1600/cyclist.gif") no-repeat center center;
-    width: 88px;
-    height: 100px;
-  background-size:100%;
-    bottom: 0;
-    left: 38%;
-    position: absolute;
-    -webkit-animation: myfirst 30s linear infinite;
-    animation: myfirst 30s linear infinite;
-}
-
-
-
-@-moz-keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@-webkit-keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/*************footer End*****************/
-
-</style>
-    <!--================ End footer Area  =================-->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.js"></script>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="js/owl-carousel-thumb.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/mail-script.js"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="js/gmaps.min.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="js/jquery.mixitup.js"></script>
+    <script src="js/nivo-lightbox.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.nav.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.vide.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/main.js"></script>
+
   </body>
 </html>

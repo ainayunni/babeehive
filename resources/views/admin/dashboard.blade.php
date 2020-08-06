@@ -219,14 +219,14 @@
   		background-color: #DDDDDD;
   		}
 
-  	/* #wrap {
+  	 #wrap {
   		width: 1100px;
   		margin: 0 auto;
-  		} */
+  		}
 
   	#external-events {
   		float: left;
-  		width: 150px;
+  		width: 100px;
   		padding: 0 10px;
   		text-align: left;
   		}
@@ -258,12 +258,12 @@
   		}
 
   	#calendar {
-  /* 		float: right; */
-          margin: 0 auto;
-  		width: 900px;
+   		float: left;
+      margin: 0 auto;
+  		width: 500px;
   		background-color: #FFFFFF;
-  		  border-radius: 6px;
-          box-shadow: 0 1px 2px #C3C3C3;
+  		border-radius: 6px;
+      box-shadow: 0 3px 5px #C3C3C3;
   		}
 
   </style>

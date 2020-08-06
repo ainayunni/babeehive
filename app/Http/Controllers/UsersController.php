@@ -40,7 +40,7 @@ class UsersController extends Controller
                 ->with('users', $users)
                 ->with('active', 'usermgt');
         }
-        
+
     }
 
     /**
@@ -66,6 +66,7 @@ class UsersController extends Controller
         $user->name = request('name');
         $user->email = request('email');
         $user->phone = request('phone');
+        $user->occupation = request('occupation');
         $user->password = Hash::make('12345678');
 
         $user->save();
@@ -115,42 +116,71 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
 
-        if(auth()->user()->hasrole('admin')){
+      if(auth()->user()->hasrole('admin')){
 
-            $user = User::find(request('id'));
+          // ni yang asal , cause error
+          // $user = User::find(request('id'));
+          //----------------------------------
 
-            $user->name = request('name');
-            $user->email = request('email');
-            $user->phone = request('phone');
+          // ni yg baru, kena check dulu hantar tak id dari depan
+          if(request('id') !== NULL){
 
-            $user->save();
+              $user = User::find(request('id'));
+
+              $user->name = request('name');
+              $user->email = request('email');
+              $user->phone = request('phone');
+
+          }else{
+
+              $user = User::find(auth()->user()->id);
+
+              $user->name = request('username');
+              $user->email = request('email');
+              $user->fullname = request('fullname');
+              $user->occupation = request('occupation');
+              $user->address = request('address');
+              $user->phone = request('phone');
+          }
+
+          //-----------------------------------
+
+          $user->save();
+
+          // baru tambah if else untuk standby in case value request role tak dihantar
+          if(request('role') !== NULL){
+
+              // save role for this user
+              $mhr = ModelHasRole::where('model_id', $user->id)->first();
+
+              $mhr->role_id = request('role');
+
+              $mhr->save();
+
+              return redirect('/users');
+
+          }else{
+
+              return redirect()->back()->withErrors(['Profile is updated!']);
+          }
 
 
-            // save role for this user
-            $mhr = ModelHasRole::where('model_id', request('id'))->first();
+      }else{
 
-            $mhr->role_id = request('role');
+          $user = User::find(auth()->user()->id);
 
-            $mhr->save();
+          $user->name = request('username');
+          $user->email = request('email');
+          $user->fullname = request('fullname');
+          $user->occupation = request('occupation');
+          $user->address = request('address');
+          $user->phone = request('phone');
 
-            return redirect('/users');
+          $user->save();
 
-        }else{
+          return redirect()->back()->withErrors(['Profile is updated!']);
+      }
 
-            $user = User::find(auth()->user()->id);
-
-            $user->name = request('username');
-            $user->email = request('email');
-            $user->fullname = request('fullname');
-            $user->occupation = request('occupation');
-            $user->address = request('address');
-            $user->phone = request('phone');
-
-            $user->save();
-
-            return redirect()->back()->withErrors(['Profile is updated!']);
-        }
-        
     }
 
     /**
@@ -208,19 +238,3 @@ class UsersController extends Controller
         return view('auth.cd')->with('active', 'profile')->with('msg',$this->msg);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

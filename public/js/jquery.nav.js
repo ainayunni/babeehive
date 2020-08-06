@@ -1,184 +1,223 @@
-/**
- * Single Page Nav Plugin
- * Copyright (c) 2014 Chris Wojcik <hello@chriswojcik.net>
- * Dual licensed under MIT and GPL.
- * @author Chris Wojcik
- * @version 1.2.0
+/*
+ * jQuery One Page Nav Plugin
+ * http://github.com/davist11/jQuery-One-Page-Nav
+ *
+ * Copyright (c) 2010 Trevor Davis (http://trevordavis.net)
+ * Dual licensed under the MIT and GPL licenses.
+ * Uses the same license as jQuery, see:
+ * http://jquery.org/license
+ *
+ * @version 3.0.0
+ *
+ * Example usage:
+ * $('#nav').onePageNav({
+ *   currentClass: 'current',
+ *   changeHash: false,
+ *   scrollSpeed: 750
+ * });
  */
 
-// Utility
-if (typeof Object.create !== 'function') {
-    Object.create = function(obj) {
-        function F() {}
-        F.prototype = obj;
-        return new F();
-    };
-}
+;(function($, window, document, undefined){
 
-(function($, window, document, undefined) {
-    "use strict";
-    
-    var SinglePageNav = {
-        
-        init: function(options, container) {
-            
-            this.options = $.extend({}, $.fn.singlePageNav.defaults, options);
-            
-            this.container = container;            
-            this.$container = $(container);
-            this.$links = this.$container.find('a');
+	// our plugin constructor
+	var OnePageNav = function(elem, options){
+		this.elem = elem;
+		this.$elem = $(elem);
+		this.options = options;
+		this.metadata = this.$elem.data('plugin-options');
+		this.$win = $(window);
+		this.sections = {};
+		this.didScroll = false;
+		this.$doc = $(document);
+		this.docHeight = this.$doc.height();
+	};
 
-            if (this.options.filter !== '') {
-                this.$links = this.$links.filter(this.options.filter);
-            }
+	// the plugin prototype
+	OnePageNav.prototype = {
+		defaults: {
+			navItems: 'a',
+			currentClass: 'current',
+			changeHash: false,
+			easing: 'swing',
+			filter: '',
+			scrollSpeed: 750,
+			scrollThreshold: 0.5,
+			begin: false,
+			end: false,
+			scrollChange: false
+		},
 
-            this.$window = $(window);
-            this.$htmlbody = $('html, body');
-            
-            this.$links.on('click.singlePageNav', $.proxy(this.handleClick, this));
+		init: function() {
+			// Introduce defaults that can be extended either
+			// globally or using an object literal.
+			this.config = $.extend({}, this.defaults, this.options, this.metadata);
 
-            this.didScroll = false;
-            this.checkPosition();
-            this.setTimer();
-        },
+			this.$nav = this.$elem.find(this.config.navItems);
 
-        handleClick: function(e) {
-            var self  = this,
-                link  = e.currentTarget,
-                $elem = $(link.hash);
+			//Filter any links out of the nav
+			if(this.config.filter !== '') {
+				this.$nav = this.$nav.filter(this.config.filter);
+			}
 
-            e.preventDefault();             
+			//Handle clicks on the nav
+			this.$nav.on('click.onePageNav', $.proxy(this.handleClick, this));
 
-            if ($elem.length) { // Make sure the target elem exists
+			//Get the section positions
+			this.getPositions();
 
-                // Prevent active link from cycling during the scroll
-                self.clearTimer();
+			//Handle scroll changes
+			this.bindInterval();
 
-                // Before scrolling starts
-                if (typeof self.options.beforeStart === 'function') {
-                    self.options.beforeStart();
-                }
+			//Update the positions on resize too
+			this.$win.on('resize.onePageNav', $.proxy(this.getPositions, this));
 
-                self.setActiveLink(link.hash);
-                
-                self.scrollTo($elem, function() { 
+			return this;
+		},
 
-                    if (self.options.updateHash && history.pushState) {
-                        history.pushState(null,null, link.hash);
-                    }
+		adjustNav: function(self, $parent) {
+			self.$elem.find('.' + self.config.currentClass).removeClass(self.config.currentClass);
+			$parent.addClass(self.config.currentClass);
+		},
 
-                    self.setTimer();
+		bindInterval: function() {
+			var self = this;
+			var docHeight;
 
-                    // After scrolling ends
-                    if (typeof self.options.onComplete === 'function') {
-                        self.options.onComplete();
-                    }
-                });                            
-            }     
-        },
-        
-        scrollTo: function($elem, callback) {
-            var self = this;
-            var target = self.getCoords($elem).top;
-            var called = false;
+			self.$win.on('scroll.onePageNav', function() {
+				self.didScroll = true;
+			});
 
-            self.$htmlbody.stop().animate(
-                {scrollTop: target}, 
-                { 
-                    duration: self.options.speed,
-                    easing: self.options.easing, 
-                    complete: function() {
-                        if (typeof callback === 'function' && !called) {
-                            callback();
-                        }
-                        called = true;
-                    }
-                }
-            );
-        },
-        
-        setTimer: function() {
-            var self = this;
-            
-            self.$window.on('scroll.singlePageNav', function() {
-                self.didScroll = true;
-            });
-            
-            self.timer = setInterval(function() {
-                if (self.didScroll) {
-                    self.didScroll = false;
-                    self.checkPosition();
-                }
-            }, 250);
-        },        
-        
-        clearTimer: function() {
-            clearInterval(this.timer);
-            this.$window.off('scroll.singlePageNav');
-            this.didScroll = false;
-        },
-        
-        // Check the scroll position and set the active section
-        checkPosition: function() {
-            var scrollPos = this.$window.scrollTop();
-            var currentSection = this.getCurrentSection(scrollPos);
-            if(currentSection!==null) {
-                this.setActiveLink(currentSection);
-            }
-        },        
-        
-        getCoords: function($elem) {
-            return {
-                top: Math.round($elem.offset().top) - this.options.offset
-            };
-        },
-        
-        setActiveLink: function(href) {
-            var $activeLink = this.$container.find("a[href$='" + href + "']");
-                            
-            if (!$activeLink.hasClass(this.options.currentClass)) {
-                this.$links.removeClass(this.options.currentClass);
-                $activeLink.addClass(this.options.currentClass);
-            }
-        },        
-        
-        getCurrentSection: function(scrollPos) {
-            var i, hash, coords, section;
-            
-            for (i = 0; i < this.$links.length; i++) {
-                hash = this.$links[i].hash;
-                
-                if ($(hash).length) {
-                    coords = this.getCoords($(hash));
-                    
-                    if (scrollPos >= coords.top - this.options.threshold) {
-                        section = hash;
-                    }
-                }
-            }
-            
-            // The current section or the first link if it is found
-            return section || ((this.$links.length===0) ? (null) : (this.$links[0].hash));
-        }
-    };
-    
-    $.fn.singlePageNav = function(options) {
-        return this.each(function() {
-            var singlePageNav = Object.create(SinglePageNav);
-            singlePageNav.init(options, this);
-        });
-    };
-    
-    $.fn.singlePageNav.defaults = {
-        offset: 0,
-        threshold: 120,
-        speed: 400,
-        currentClass: 'current',
-        easing: 'swing',
-        updateHash: false,
-        filter: '',
-        onComplete: false,
-        beforeStart: false
-    };
-    
-})(jQuery, window, document);
+			self.t = setInterval(function() {
+				docHeight = self.$doc.height();
+
+				//If it was scrolled
+				if(self.didScroll) {
+					self.didScroll = false;
+					self.scrollChange();
+				}
+
+				//If the document height changes
+				if(docHeight !== self.docHeight) {
+					self.docHeight = docHeight;
+					self.getPositions();
+				}
+			}, 250);
+		},
+
+		getHash: function($link) {
+			return $link.attr('href').split('#')[1];
+		},
+
+		getPositions: function() {
+			var self = this;
+			var linkHref;
+			var topPos;
+			var $target;
+
+			self.$nav.each(function() {
+				linkHref = self.getHash($(this));
+				$target = $('#' + linkHref);
+
+				if($target.length) {
+					topPos = $target.offset().top;
+					self.sections[linkHref] = Math.round(topPos);
+				}
+			});
+		},
+
+		getSection: function(windowPos) {
+			var returnValue = null;
+			var windowHeight = Math.round(this.$win.height() * this.config.scrollThreshold);
+
+			for(var section in this.sections) {
+				if((this.sections[section] - windowHeight) < windowPos) {
+					returnValue = section;
+				}
+			}
+
+			return returnValue;
+		},
+
+		handleClick: function(e) {
+			var self = this;
+			var $link = $(e.currentTarget);
+			var $parent = $link.parent();
+			var newLoc = '#' + self.getHash($link);
+
+			if(!$parent.hasClass(self.config.currentClass)) {
+				//Start callback
+				if(self.config.begin) {
+					self.config.begin();
+				}
+
+				//Change the highlighted nav item
+				self.adjustNav(self, $parent);
+
+				//Removing the auto-adjust on scroll
+				self.unbindInterval();
+
+				//Scroll to the correct position
+				self.scrollTo(newLoc, function() {
+					//Do we need to change the hash?
+					if(self.config.changeHash) {
+						window.location.hash = newLoc;
+					}
+
+					//Add the auto-adjust on scroll back in
+					self.bindInterval();
+
+					//End callback
+					if(self.config.end) {
+						self.config.end();
+					}
+				});
+			}
+
+			e.preventDefault();
+		},
+
+		scrollChange: function() {
+			var windowTop = this.$win.scrollTop();
+			var position = this.getSection(windowTop);
+			var $parent;
+
+			//If the position is set
+			if(position !== null) {
+				$parent = this.$elem.find('a[href$="#' + position + '"]').parent();
+
+				//If it's not already the current section
+				if(!$parent.hasClass(this.config.currentClass)) {
+					//Change the highlighted nav item
+					this.adjustNav(this, $parent);
+
+					//If there is a scrollChange callback
+					if(this.config.scrollChange) {
+						this.config.scrollChange($parent);
+					}
+				}
+			}
+		},
+
+		scrollTo: function(target, callback) {
+			var offset = $(target).offset().top;
+
+			$('html, body').animate({
+				scrollTop: offset
+			}, this.config.scrollSpeed, this.config.easing, callback);
+		},
+
+		unbindInterval: function() {
+			clearInterval(this.t);
+			this.$win.unbind('scroll.onePageNav');
+		}
+	};
+
+	OnePageNav.defaults = OnePageNav.prototype.defaults;
+
+	$.fn.onePageNav = function(options) {
+		return this.each(function() {
+			new OnePageNav(this, options).init();
+		});
+	};
+
+})( jQuery, window , document );

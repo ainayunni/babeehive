@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Logbook</title>
+  <title>Babee Hive</title>
   <!-- Favicon -->
   <link rel="icon" href="{{ asset('themes/img/brand/favicon.png') }}" type="image/png">
   <!-- Fonts -->
@@ -36,12 +36,12 @@
   </style>
 </head>
 
-<body class="bg-default">
+<body class="bg-secondary">
   <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="dashboard.html">
-        <img src="{{ asset('image/logos.png') }}" width="100%">
+        <img src="{{ asset('img/logobanner.png') }}" width="100%">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="dashboard.html">
-                <img src="{{ asset('image/logos.png') }}">
+                <img src="{{ asset('img/logobanner.png') }}">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -68,19 +68,19 @@
   <!-- Main content -->
   <div class="main-content">
     <!-- Header -->
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    <div class="header bg-transparent py-7 py-lg-8 pt-lg-9">
 
       <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <!-- <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+        </svg> -->
       </div>
     </div>
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-7">
-          <div class="card bg-secondary border-0 mb-0">
+          <div class="card bg-info border-0 mb-0">
             <div class="card-body px-lg-5 py-lg-5">
 
 

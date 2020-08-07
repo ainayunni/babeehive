@@ -20,13 +20,13 @@
           </button>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
-  
+
   <div class="col">
     <div class="card">
       <!-- Card header -->
@@ -57,24 +57,24 @@
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-160px, 40px, 0px);" x-placement="bottom-end">
-                    <a class="dropdown-item editUser" 
-                        data-id="{{ $u->id }}" 
-                        data-name="{{ $u->name }}" 
-                        data-email="{{ $u->email }}" 
-                        data-phone="{{ $u->phone }}" 
-                        data-role="{{ $u->roles[0]->id }}" 
-                        data-toggle="modal" 
-                        data-target="#editUserModal" 
+                    <a class="dropdown-item editUser"
+                        data-id="{{ $u->id }}"
+                        data-name="{{ $u->name }}"
+                        data-email="{{ $u->email }}"
+                        data-phone="{{ $u->phone }}"
+                        data-role="{{ $u->roles[0]->id }}"
+                        data-toggle="modal"
+                        data-target="#editUserModal"
                         href="#">Edit</a>
                     <a class="dropdown-item removeUser"
-                        data-id="{{ $u->id }}" 
-                        data-name="{{ $u->name }}" 
-                        data-toggle="modal" 
-                        data-target="#removeUserModal" 
+                        data-id="{{ $u->id }}"
+                        data-name="{{ $u->name }}"
+                        data-toggle="modal"
+                        data-target="#removeUserModal"
                         href="#">Remove</a>
                   </div>
                 </div>
-                        
+
               </td>
             </tr>
             @endforeach
@@ -83,7 +83,7 @@
         </table>
       </div>
       <!-- Card footer -->
-      
+
     </div>
   </div>
 
@@ -133,7 +133,7 @@
         </button>
       </div>
       <div class="modal-body">
-          
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -194,6 +194,7 @@
           <form action="{{ url('/users') }}" method="POST" id="removeForm">
           @csrf
           @method('DELETE')
+
           <input type="hidden" name="id" id="rid">
           <span>Remove user <span id="user_name"></span></span>
       </div>
@@ -205,7 +206,7 @@
     </div>
   </div>
 </div>
-      
+
   <!-- Footer -->
   <footer class="footer pt-0">
     <div class="row align-items-center justify-content-lg-between">
@@ -234,7 +235,11 @@
   </footer>
 </div>
 
-
+@if($errors->any())
+<script>
+alert('{{ $errors->first() }}');
+</script>
+@endif
 <script>
   $('.editUser').click(function(){
 

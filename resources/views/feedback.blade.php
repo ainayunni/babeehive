@@ -48,13 +48,20 @@
             </ol>
           </nav>
         </div>
+        @hasrole('teacher')
+        <div class="col-lg-6 col-5 text-right">
+          <button type="button" class="btn btn-secondary messageUser" data-toggle="modal" data-target="#messageUserModal" >
+            <i class="fas fa-plus"></i> New Feedback
+          </button>
+        </div>
+        @endhasrole
       </div>
     </div>
   </div>
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
-  
+
   <div class="col">
     <div class="card">
       <!-- Card header -->
@@ -86,12 +93,12 @@
               <td>{{ $feed->teacher->phone }}</td>
               @endhasrole
               <td>
-                <a class="dropdown-item editUser" 
-                  data-subject="{{ $feed->subject }}" 
-                  data-content="{{ $feed->content }}" 
-                  data-teacher="{{ $feed->teacher->name }}"  
-                  data-toggle="modal" 
-                  data-target="#viewInboxModal" 
+                <a class="dropdown-item editUser"
+                  data-subject="{{ $feed->subject }}"
+                  data-content="{{ $feed->content }}"
+                  data-teacher="{{ $feed->teacher->name }}"
+                  data-toggle="modal"
+                  data-target="#viewInboxModal"
                   href="#"><i class="fas fa-search mr-4"></i></a>
               </td>
             </tr>
@@ -132,6 +139,14 @@
       $('#subject').html(subject);
       $('#sender').html(sender);
       $('#content').html(content);
+    });
+    $('.messageUser').click(function(){
+
+      var id = $(this).data('id');
+      var parent = $(this).data('parent');
+
+      $('#mstud').val(id);
+      $('#mpar').val(parent);
     });
 </script>
 

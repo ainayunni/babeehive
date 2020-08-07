@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Student;
 use App\ModelHasRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -191,7 +192,21 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+      $role = $user->getRoleNames();
+      if($role[0] == 'teacher'){ $col = 'teacher_id'; }else{ $col = 'parent_id';}
+
+      $student = Student::where($col, $user->id)->count();
+
+      if($student <> 0){
+
+          return redirect()->back()->withErrors(['This users cannot be deleted because it has a children!']);
+
+      }else{
+
+          $user->delete();
+
+          return redirect()->back();
+      }
     }
 
     public function parents(){

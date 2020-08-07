@@ -94,6 +94,7 @@
                 @endhasrole
                 <td>
                   <a href="{{ url('logbook/'.$logbook->id) }}" role="button"><i class="fas fa-search mr-4"></i></a>
+                  <a href="{{ url('logbook/print/'.$logbook->id) }}" role="button"><i class="fas fa-print mr-4"></i></a>
                   @hasrole('teacher')
                   <a href="" data-toggle="modal" data-target="#addUserModal"><i class="fas fa-trash-alt text-danger"></i></a>
                   @endhasrole
@@ -203,7 +204,7 @@
                              </div>
                              <div class="row mt-3">
                                 <div class="col-md-12">
-                                  <p>List of Items Brought (If Any):</p>
+                                  <p>List of Items to Bring (If Any):</p>
                                   <textarea name="equipment" class="form-control" placeholder="E.g New Towel, New Clothes, Extra Diapers" rows="3"></textarea>
                                 </div>
                              </div>
@@ -213,12 +214,7 @@
                                   <textarea name="medicine" class="form-control" placeholder="E.g Paracetamol Syrup" rows="3"></textarea>
                                 </div>
                              </div>
-                             <div class="row mt-3">
-                                <div class="col-md-12">
-                                  <p>List of Items to Bring (If Any):</p>
-                                  <textarea name="medicine" class="form-control" placeholder="E.g Baby Biscuit" rows="3"></textarea>
-                                </div>
-                             </div>
+
                          </div>
                          <div id="step-3" class="">
                              <div class="row">

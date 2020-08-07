@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/studentsprint','PrintController@index');
+// Route::get('/prnpriview','PrintController@prnpriview');
 
 Auth::routes();
 
@@ -35,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::middleware(['parent'])->group(function () {
 		Route::get('/home', 'HomeController@index');
 		Route::get('/inbox', 'FeedbackController@index');
+    Route::get('/logbook/print/{logbookId}', 'PrintController@prnpriview');
 	});
 
 	Route::resource('logbook','LogbookController');

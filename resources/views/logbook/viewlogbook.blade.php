@@ -61,7 +61,7 @@
         </div>
         <div class="col-lg-3 col-5 text-right">
           @hasrole('parent')
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" id="printTable" onclick="printData()"  class="btn btn-secondary" >
             <i class="fas fa-print"></i> Print Logbook
           </button>
           @endhasrole
@@ -72,7 +72,7 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--6">
-  
+
   <div class="col">
     <div class="card">
       <!-- Card header -->
@@ -106,7 +106,7 @@
                     <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
 
                           <table class="table">
-                            
+
                             <tbody>
                               <tr>
                                 <td width="20%">
@@ -146,17 +146,17 @@
                         <h1 class="badge badge-danger badge-lg display-1">{{ $logbook->student->name }} is not healthy</h1>
                       @endif
 
-                      <p class="mt-3">{{ $logbook->student->name }} brings : </p>
+                      <p class="mt-3">{{ $logbook->student->name }} Brought : </p>
                       <p><b>{{ $logbook->equipment }}</b></p>
 
-                      <p class="mt-3">Medicine provided : </p>
+                      <p class="mt-3">Medications Provided : </p>
                       <p><b>{{ $logbook->medicine }}</b></p>
                     </div>
                     <div class="tab-pane fade" id="meal" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
                         <table class="table table-bordered mb-2">
-                          <thead class="thead-pink">
+                          <thead class="table-info">
                             <tr>
-                              <th width="19%"></th>
+                              <th width="19%">Milk</th>
                               <th width="40%">Milk 1</th>
                               <th width="40%">Milk 2</th>
                             </tr>
@@ -175,9 +175,9 @@
                           </tbody>
                         </table>
                         <table class="table table-bordered">
-                          <thead class="thead-pink">
+                          <thead class="table-info">
                             <tr>
-                              <th width="19%"></th>
+                              <th width="19%">Food</th>
                               <th width="27%">Breakfast</th>
                               <th width="27%">Lunch</th>
                               <th width="27%">Tea-time</th>
@@ -196,7 +196,7 @@
                     <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                         <div class="row">
                           <table class="table table-bordered">
-                            <thead class="thead-grass">
+                            <thead class="table-info">
                               <tr>
                                 <th width="40%">Outdoor</th>
                                 <th width="40%">Circle-Time</th>
@@ -213,11 +213,11 @@
                     </div>
                     <div class="tab-pane fade" id="hygiene" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
                         <table class="table table-bordered">
-                          <thead class="thead-pink">
+                          <thead class="table-info">
                             <tr>
-                              <th width="20%"></th>
-                              <th width="40%"></th>
-                              <th width="40%"></th>
+                              <th width="20%">Routine</th>
+                              <th width="40%">Time Taken</th>
+                              <th width="40%">Remarks</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -417,7 +417,7 @@
       </div>
     </div>
   </div>
-      
+
 </div>
 
 @stop

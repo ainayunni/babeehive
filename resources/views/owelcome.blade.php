@@ -173,7 +173,7 @@
               <div class="desc">
                 <h4 class="mt-3 mb-2">Discovery-School</h4>
                 <p>
-                  Your little one is discovering more and more each day. Our approach to teaching this age as they navigate their world uses music, art, and movement while nurturing their progress toward preschool.
+
                 </p>
               </div>
             </div>

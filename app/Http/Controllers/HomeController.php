@@ -33,4 +33,10 @@ class HomeController extends Controller
 
         return view('profile')->with('active','profile');
     }
+
+    public function pdf()
+    {
+      $pdf = PDF::loadView('pdf.invoice', $data);
+      return $pdf->download('invoice.pdf');
+    }
 }

@@ -27,7 +27,7 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'studrec') active @endif" href="{{ url('/parents') }}">
                 <i class="ni ni-ruler-pencil text-yellow"></i>
-                <span class="nav-link-text">Students Records</span>
+                <span class="nav-link-text">Students Record</span>
               </a>
             </li>
             @endhasrole
@@ -42,19 +42,19 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'students') active @endif" href="{{ url('/students') }}">
                 <i class="ni ni-circle-08 text-yellow"></i>
-                <span class="nav-link-text">Students</span>
+                <span class="nav-link-text">Students Record</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link @if($active == 'parents') active @endif" href="{{ url('/parents') }}">
                 <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Parents</span>
+                <span class="nav-link-text">Parents Record</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link @if($active == 'logbook') active @endif" href="{{ url('/logbook') }}">
                 <i class="ni ni-collection text-yellow"></i>
-                <span class="nav-link-text">Logbooks</span>
+                <span class="nav-link-text">Logbooks Report</span>
               </a>
             </li>
             @endhasrole
@@ -63,13 +63,13 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'home') active @endif" href="{{ url('/panel') }}">
                 <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Home</span>
+                <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link @if($active == 'logbook') active @endif" href="{{ url('/logbook') }}">
                 <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Logbooks</span>
+                <span class="nav-link-text">Logbooks Report</span>
               </a>
             </li>
             @endhasrole
@@ -86,7 +86,7 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'feedback') active @endif" href="{{ url('/feedback') }}">
                 <i class="ni ni-single-copy-04 text-blue"></i>
-                <span class="nav-link-text">Feedback</span>
+                <span class="nav-link-text">Students Comment</span>
               </a>
             </li>
             @endhasrole
@@ -94,14 +94,14 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'inbox') active @endif" href="{{ url('/inbox') }}">
                 <i class="ni ni-palette"></i>
-                <span class="nav-link-text">Inbox</span>
+                <span class="nav-link-text">Teachers Comment</span>
               </a>
             </li>
             @endhasrole
             <li class="nav-item">
               <a class="nav-link @if($active == 'profile') active @endif" href="{{ url('/profile') }}">
                 <i class="ni ni-user-run text-blue"></i>
-                <span class="nav-link-text">Profile</span>
+                <span class="nav-link-text">My Profile</span>
               </a>
             </li>
             <li class="nav-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

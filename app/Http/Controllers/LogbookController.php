@@ -14,12 +14,21 @@ class LogbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
+    public function index(Request $request)
+    {
+
+
         if(auth()->user()->hasrole('teacher')){
 
             $students = Student::where('teacher_id', auth()->user()->id)->get();
-            $logbooks = Logbook::where('teacher_id', auth()->user()->id)->get();
+
+
+            if(isset($request->f_date)){
+              $logbooks = Logbook::whereDate('date',$request->f_date)->where('teacher_id', auth()->user()->id)->get();
+            }else{
+                $logbooks = Logbook::where('teacher_id', auth()->user()->id)->get();
+            }
+
 
         }else if(auth()->user()->hasrole('parent')){
 
@@ -53,7 +62,8 @@ class LogbookController extends Controller
         return view('logbook')->with('active','logbook')
                                 ->with('formwizard',true)
                                 ->with('students', $students)
-                                ->with('logbooks', $logbooks);
+                                ->with('logbooks', $logbooks)
+                                ->with('datef',$request);
     }
 
     /**
@@ -120,6 +130,7 @@ class LogbookController extends Controller
      */
     public function show(Logbook $logbook)
     {
+
         return view('logbook.viewlogbook')->with('logbook',$logbook)->with('active','logbook');
     }
 

@@ -65,11 +65,25 @@
   <div class="col">
     <div class="card">
       <!-- Card header -->
+      <div class="card-body">
+          <div class="col-md-6">
+              <form method="get" action="/logbook" >
+              <div class="form-group">
+              <label>Search By</label>
+          </div>
+              <div class="form-group">
+                <input type="date" class="form-control" id="myInput" name="f_date" placeholder="Select Date" value="{{ ($datef->f_date=='')?'':Carbon\Carbon::parse($datef->f_date)->format('Y-m-d') }}">
+              </div>&nbsp;
+              <input class="btn btn-primary" id="search" value="Cari" type="submit">&nbsp;
+              <button type="button" class="btn btn-danger" id="back" onclick="window.location.href='/logbook'">Set Semula</button>
+            </form>
+            </div>
+        </div>
       <div class="card-header border-0">
       </div>
       <!-- Light table -->
       <div class="table-responsive">
-        <table class="table table-hover align-items-center table-flush">
+        <table class="table table-hover align-items-center table-flush" id="filterTable">
           <thead class="thead-light">
             <tr>
               <th scope="col">ID</th>
@@ -337,8 +351,9 @@
 </div>
 
 <script>
-  $(document).ready(function(){
 
+  $(document).ready(function(){
+    $('#filterTable').DataTable( );
     $('#smartwizard').smartWizard({
       selected: 0,
       theme: 'arrows',

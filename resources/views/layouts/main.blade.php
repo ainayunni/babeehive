@@ -32,14 +32,14 @@
   <link rel="stylesheet" href="{{ asset('themes/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{ asset('themes/css/argon.css?v=1.2.0') }}" type="text/css">
-
+  <link rel="stylesheet" href="{{ asset('css/datatable.min.css') }}" type="text/css">
   <!-- Core -->
   <script src="{{ asset('themes/vendor/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ asset('themes/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('themes/vendor/js-cookie/js.cookie.js') }}"></script>
   <script src="{{ asset('themes/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
   <script src="{{ asset('themes/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-
+  <script src="{{ asset('js/datatable.js') }}"></script>
   @if(isset($formwizard))
   <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
   <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152091/smartwizard/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />

@@ -60,11 +60,11 @@
           </nav>
         </div>
         <div class="col-lg-3 col-5 text-right">
-          @hasrole('parent')
-          <button type="button" id="printTable" onclick="printData()"  class="btn btn-secondary" >
+
+          <!-- <button type="button" id="printTable" onclick="printData()"  class="btn btn-secondary" >
             <i class="fas fa-print"></i> Print Logbook
-          </button>
-          @endhasrole
+          </button> -->
+
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
 
-                          <table class="table">
+                          <table class="table table-bordered mb-2">
 
                             <tbody>
                               <tr>
@@ -119,24 +119,25 @@
                                 <td class="align-middle"><h2>{{ $logbook->student->name }}</h2></td>
                               </tr>
                               <tr>
-                                <td width="20%" class="align-middle">
+                                <td width="20%" class="align-middle table-info">
                                   <h4>Arrived at</h4>
                                 </td>
                                 <td class="align-middle"><h4>{{ $logbook->time }}</h4></td>
                               </tr>
                               <tr>
-                                <td width="20%" class="align-middle">
+                                <td width="20%" class="align-middle table-info"  >
                                   <h4>Sent by</h4>
                                 </td>
-                                <td class="align-middle"><h4>{{ $logbook->sender }}</h4></td>
+                                <td class="align-middle "><h4>{{ $logbook->sender }}</h4></td>
                               </tr>
                               <tr>
-                                <td width="20%" class="align-middle">
+                                <td width="20%" class="align-middle table-info">
                                   <h4>Additional info</h4>
                                 </td>
                                 <td class="align-middle"><h4>{{ $logbook->additional_note }}</h4></td>
                               </tr>
                             </tbody>
+
                           </table>
                     </div>
                     <div class="tab-pane fade" id="health" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
@@ -145,12 +146,20 @@
                       @else
                         <h1 class="badge badge-danger badge-lg display-1">{{ $logbook->student->name }} is not healthy</h1>
                       @endif
+                      <table class="table table-bordered mb-2">
+                        <thead>
+                          <tr>
+                            <th width="20%" class="align-middle table-info">{{ $logbook->student->name }} Brought : </th>
+                            <td><b>{{ $logbook->equipment }}</b></td>
+                          </tr>
+                          <tr>
+                            <th width="20%" class="align-middle table-info">Medications Provided : </th>
+                            <td><b>{{ $logbook->medicine }}</b></td>
+                          </tr>
 
-                      <p class="mt-3">{{ $logbook->student->name }} Brought : </p>
-                      <p><b>{{ $logbook->equipment }}</b></p>
 
-                      <p class="mt-3">Medications Provided : </p>
-                      <p><b>{{ $logbook->medicine }}</b></p>
+
+                    </table>
                     </div>
                     <div class="tab-pane fade" id="meal" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
                         <table class="table table-bordered mb-2">
@@ -266,7 +275,7 @@
                                 </div>
                                 @endif
                               </td>
-                              <td>Diapers Info : <br>{{ $logbook->dypers_info }}</td>
+                              <td><b>Diapers Info:</b> <br>{{ $logbook->dypers_info }}</td>
                             </tr>
                             <tr class="text-left">
                               <td><img src="{{ asset('image/teeth.png') }}"></td>

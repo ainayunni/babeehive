@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Logbook;
 use App\Student;
 use App\User;
 use Illuminate\Http\Request;
@@ -105,6 +106,17 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+      $logbook = Logbook::where('student_id',$student->id)->count();
+      if($logbook <> 0){
+
+          return redirect()->back()->withErrors(['This users cannot be deleted because it has a logbook!']);
+
+      }else{
+
+          $student->delete();
+
+          return redirect()->back();
+      }
+
     }
 }

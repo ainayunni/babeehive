@@ -74,8 +74,8 @@
               <div class="form-group">
                 <input type="date" class="form-control" id="myInput" name="f_date" placeholder="Select Date" value="{{ ($datef->f_date=='')?'':Carbon\Carbon::parse($datef->f_date)->format('Y-m-d') }}">
               </div>&nbsp;
-              <input class="btn btn-primary" id="search" value="Cari" type="submit">&nbsp;
-              <button type="button" class="btn btn-danger" id="back" onclick="window.location.href='/logbook'">Set Semula</button>
+              <input class="btn btn-primary" id="search" value="Search" type="submit">&nbsp;
+              <button type="button" class="btn btn-danger" id="back" onclick="window.location.href='/logbook'">Reset</button>
             </form>
             </div>
         </div>
@@ -107,11 +107,17 @@
                 <th>{{ $logbook->teacher->phone }}</th>
                 @endhasrole
                 <td>
-                  <a href="{{ url('logbook/'.$logbook->id) }}" role="button"><i class="fas fa-search mr-4"></i></a>
-                  <a href="{{ url('logbook/print/'.$logbook->id) }}" role="button"><i class="fas fa-print mr-4"></i></a>
-                  @hasrole('teacher')
-                  <a href="" data-toggle="modal" data-target="#addUserModal"><i class="fas fa-trash-alt text-danger"></i></a>
-                  @endhasrole
+
+                  <form action="/logbook/{{$logbook->id}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <a class="btn" href="{{ url('logbook/'.$logbook->id) }}" role="button"><i class="fas fa-search mr-4"></i></a>
+                    <a class="btn" href="{{ url('/logbook/print/'.$logbook->id) }}" role="button"><i class="fas fa-print mr-4"></i></a>
+                    @hasanyrole('teacher|admin')
+                    <button class="btn" type="submit" role="button" style="background-color:transparent"><i class="fas fa-trash-alt text-danger"></i></button>@endhasanyrole
+                  </form>
+
+
                 </td>
               </tr>
             @endforeach

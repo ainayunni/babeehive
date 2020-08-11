@@ -56,29 +56,30 @@
                   <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v"></i>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-160px, 0px, 0px);" x-placement="bottom-end">
-                    <a class="dropdown-item editUser"
-                        data-id="{{ $st->id }}"
-                        data-name="{{ $st->name }}"
-                        data-gender="{{ $st->gender }}"
-                        data-age="{{ $st->age }}"
-                        data-parent="{{ $st->parent->id }}"
-                        data-toggle="modal"
-                        data-target="#editUserModal"
-                        href="#">Edit</a>
-                    <a class="dropdown-item removeUser"
-                        data-id="{{ $st->id }}"
-                        data-name="{{ $st->name }}"
-                        data-toggle="modal"
-                        data-target="#removeUserModal"
-                        href="#">Remove</a>
-                    <a class="dropdown-item messageUser"
-                        data-id="{{ $st->id }}"
-                        data-name="{{ $st->name }}"
-                        data-parent="{{ $st->parent_id }}"
-                        data-toggle="modal"
-                        data-target="#messageUserModal"
-                        href="#">Message</a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-160px, 0px, 0px);z-index:9999999!important;" x-placement="bottom-end">
+                    <form action="/students/{{$st->id}}" method="POST">
+                      @csrf
+                      @method('delete')
+                      <a class="dropdown-item editUser"
+                          data-id="{{ $st->id }}"
+                          data-name="{{ $st->name }}"
+                          data-gender="{{ $st->gender }}"
+                          data-age="{{ $st->age }}"
+                          data-parent="{{ $st->parent->id }}"
+                          data-toggle="modal"
+                          data-target="#editUserModal"
+                          href="#">Edit</a>
+
+                      <a class="dropdown-item messageUser"
+                          data-id="{{ $st->id }}"
+                          data-name="{{ $st->name }}"
+                          data-parent="{{ $st->parent_id }}"
+                          data-toggle="modal"
+                          data-target="#messageUserModal"
+                          href="#">Message</a>
+                      <button class="dropdown-item removeUser" type="submit" style="background-color:transparent">Remove</button>
+                    </form>
+
                   </div>
                 </div>
 
@@ -233,9 +234,9 @@
 
 
 @if($errors->any())
-  <script>
-    $('#messageUserModal').modal('show');
-  </script>
+<script>
+alert('{{ $errors->first() }}');
+</script>
 @endif
 
 <script>

@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::middleware(['parent'])->group(function () {
 		Route::get('/home', 'HomeController@index');
 		Route::get('/inbox', 'FeedbackController@index');
-    Route::get('/logbook/print/{logbookId}', 'PrintController@prnpriview');
+
 	});
 
 	Route::resource('logbook','LogbookController');
@@ -49,4 +49,5 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('change', 'UsersController@cp');
 	Route::post('ch','UsersController@reset')->name('reset');
+  Route::get('/logbook/print/{logbookId}', 'PrintController@prnpriview');
 });

@@ -114,6 +114,32 @@
 </div>
 
 <!-- Modal -->
+<div class="modal fade" id="messageUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-top" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <h5 class="modal-title" id="exampleModalLabel">Message Student</h5><br>
+        @if($errors->any())
+        <p class="badge badge-success">{{ $errors->first() }}</p>
+        @endif
+
+        <form action="{{ url('/feedback') }}" method="POST">
+          @csrf
+          <input type="hidden" name="student_id" id="mstud" value="">
+          <input type="hidden" name="parent_id" id="mpar" value="">
+          <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+          <br>
+          <textarea name="content" class="form-control" rows="3" required></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="viewInboxModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-top" role="document">
     <div class="modal-content">

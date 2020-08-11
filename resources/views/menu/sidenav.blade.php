@@ -25,9 +25,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link @if($active == 'studrec') active @endif" href="{{ url('/parents') }}">
-                <i class="ni ni-ruler-pencil text-yellow"></i>
-                <span class="nav-link-text">Students Record</span>
+              <a class="nav-link @if($active == 'logbook') active @endif" href="{{ url('/logbook') }}">
+                <i class="ni ni-collection text-yellow"></i>
+                <span class="nav-link-text">Logbooks Management</span>
               </a>
             </li>
             @endhasrole
@@ -68,7 +68,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link @if($active == 'logbook') active @endif" href="{{ url('/logbook') }}">
-                <i class="ni ni-circle-08 text-pink"></i>
+                <i class="ni ni-collection text-yellow"></i>
                 <span class="nav-link-text">Logbooks Report</span>
               </a>
             </li>
@@ -82,18 +82,18 @@
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
-            @hasrole('teacher')
+            <!-- @hasrole('teacher')
             <li class="nav-item">
               <a class="nav-link @if($active == 'feedback') active @endif" href="{{ url('/feedback') }}">
                 <i class="ni ni-single-copy-04 text-blue"></i>
                 <span class="nav-link-text">Students Comment</span>
               </a>
             </li>
-            @endhasrole
+            @endhasrole -->
             @hasrole('parent')
             <li class="nav-item">
               <a class="nav-link @if($active == 'inbox') active @endif" href="{{ url('/inbox') }}">
-                <i class="ni ni-palette"></i>
+                <i class="ni ni-planet text-blue"></i>
                 <span class="nav-link-text">Teachers Comment</span>
               </a>
             </li>

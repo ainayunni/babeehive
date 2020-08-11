@@ -165,6 +165,9 @@ class LogbookController extends Controller
      */
     public function destroy(Logbook $logbook)
     {
-        //
+      // $user->destroy($id);
+
+        $logbook->delete();
+        return back();
     }
 }

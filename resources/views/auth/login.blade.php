@@ -36,11 +36,14 @@
   </style>
 </head>
 
-<body class="bg-secondary">
+<body class="bg-secondary" style="background-image: url(img/hero-area.jpg);background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}" >
   <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="dashboard.html">
+      <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{ asset('img/logobanner.png') }}" width="100%">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +83,7 @@
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-7">
-          <div class="card bg-info border-0 mb-0">
+          <div class="card bg-transparent border-0 mb-0">
             <div class="card-body px-lg-5 py-lg-5">
 
 
@@ -105,29 +108,20 @@
                     <input class="form-control" placeholder="Password" type="password" name="password">
                   </div>
                 </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember me</span>
-                  </label>
-                </div>
+
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                  <button type="submit" class="btn btn-info my-4">Sign in</button>
                 </div>
               </form>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-6">
-              <a href="#" class="text-light"><small>Forgot password?</small></a>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
   </div>
   <!-- Footer -->
-  <footer class="py-5" id="footer-main">
+  <!-- <footer class="py-5" id="footer-main">
     <div class="container">
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
@@ -153,7 +147,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="{{ asset('themes/vendor/jquery/dist/jquery.min.js') }}"></script>

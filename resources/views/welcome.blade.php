@@ -207,22 +207,6 @@
     </section>
     <!-- Programmes Section End -->
 
-    <!-- Start Video promo Section -->
-    <section class="video-promo section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-              <div class="video-promo-content text-center">
-                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Our Promotional video</h2>
-                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms"></p>
-                <a href="https://www.youtube.com/watch?v=BxriN9ysHHc" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Video Promo Section -->
-
     <!-- Team section Start -->
     <section id="team" class="section">
       <div class="container">
@@ -239,12 +223,6 @@
                 <div class="team-inner">
                   <h4 class="team-title">Teacher Ayu</h4>
                   <p>Mathematics Teacher</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -256,13 +234,7 @@
                 <div class="team-inner">
                   <h4 class="team-title">Sir Nazren</h4>
                   <p>Sports Teacher</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -273,13 +245,7 @@
                 <div class="team-inner">
                   <h4 class="team-title">Teacher Liyana</h4>
                   <p>English Teacher</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -290,13 +256,7 @@
                 <div class="team-inner">
                   <h4 class="team-title">Teacher Auni</h4>
                   <p>Science Teacher</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -315,49 +275,10 @@
                 <h3>Contact With us</h3>
                 <div class="contact-address">
                   <p>Babee Hive, Putrajaya, Malaysia </p>
-                  <p class="phone">Phone: <span>(+601 123 4567)</span></p>
-                  <p class="email">E-mail: <span>(admin@mailsac.com)</span></p>
+                  <p class="phone">Phone: <span>+6013 258 9157</span></p>
+                  <p class="email">E-mail: <span>ainayunni.work@gmail.com</span></p>
+                  <p class="phone">Whatsapp: <span><a href="https://wa.link/egk1g2"</a>Hello, Babee Hive!</span></p>
                 </div>
-                <div class="social-icons">
-                  <ul>
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-xs-12">
-              <div class="contact-block">
-                <form id="contactForm">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <div class="submit-button text-center">
-                        <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                        <div class="clearfix"></div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
           </div>

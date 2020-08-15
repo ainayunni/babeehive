@@ -67,6 +67,7 @@
       <!-- Card header -->
       <div class="card-body">
           <div class="col-md-6">
+            @hasanyrole('teacher')
               <form method="get" action="/logbook" >
               <div class="form-group">
               <label>Search By</label>
@@ -77,6 +78,7 @@
               <input class="btn btn-primary" id="search" value="Search" type="submit">&nbsp;
               <button type="button" class="btn btn-danger" id="back" onclick="window.location.href='/logbook'">Reset</button>
             </form>
+            @endhasanyrole
             </div>
         </div>
       <div class="card-header border-0">

@@ -54,7 +54,7 @@
             <li class="nav-item">
               <a class="nav-link @if($active == 'logbook') active @endif" href="{{ url('/logbook') }}">
                 <i class="ni ni-collection text-yellow"></i>
-                <span class="nav-link-text">Logbooks Report</span>
+                <span class="nav-link-text">Logbooks Record</span>
               </a>
             </li>
             @endhasrole
@@ -90,14 +90,14 @@
               </a>
             </li>
             @endhasrole -->
-            @hasrole('parent')
+            <!-- @hasrole('parent')
             <li class="nav-item">
               <a class="nav-link @if($active == 'inbox') active @endif" href="{{ url('/inbox') }}">
                 <i class="ni ni-planet text-blue"></i>
                 <span class="nav-link-text">Teachers Comment</span>
               </a>
             </li>
-            @endhasrole
+            @endhasrole -->
             <li class="nav-item">
               <a class="nav-link @if($active == 'profile') active @endif" href="{{ url('/profile') }}">
                 <i class="ni ni-user-run text-blue"></i>

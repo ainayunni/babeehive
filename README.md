@@ -15,7 +15,7 @@
 * Ensure the confidentiality, integrity and availability of our website
 * Avoid data breach which can result in lawsuits and heavy fines
 
-Web Application Security Enhancement which includes:
+#### Web Application Security Enhancement which includes:
 
 **i. Input Validation** 
 * The input elements that are being validated are email and name at the client side. 

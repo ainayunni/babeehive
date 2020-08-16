@@ -6,7 +6,7 @@
 * Nor Ain Ayunni Binti Muhammad Subandi 1627096
 * Zaiton Binti Ahmad Maideen 1523388
 
-#### Title: Taska Babeehive
+#### Title: Babeehive
 ##### Description: This web application is all about the reporting system applied by kindergarten or nursery.
 
 #### The objective of the enhancement are to: 

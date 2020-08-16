@@ -101,11 +101,11 @@
       <div class="modal-body">
           <form action="{{ url('/users') }}" method="POST">
           @csrf
-          <input type="text" name="name" class="form-control" placeholder="Name">
+          <input type="text" pattern="[A-Za-z]{3}" name="name" class="form-control" placeholder="Name">
           <br>
-          <input type="text" name="email" class="form-control" placeholder="Email">
+          <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" class="form-control" placeholder="Email">
           <br>
-          <input type="text" name="phone" class="form-control" placeholder="Phone">
+          <input type="text" name="phone" class="form-control" placeholder="+60123456789">
           <br>
           <select name="role" class="form-control">
             <option value="">Select role</option>

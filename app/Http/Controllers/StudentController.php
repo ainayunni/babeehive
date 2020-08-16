@@ -41,6 +41,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        
         $user = new Student;
 
         $user->name = request('name');

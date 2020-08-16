@@ -272,7 +272,7 @@
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-xs-12">
               <div class="contact-us">
-                <h3>Contact With us</h3>
+                <h3>Contact with us</h3>
                 <div class="contact-address">
                   <p>Babee Hive, Putrajaya, Malaysia </p>
                   <p class="phone">Phone: <span>+6013 258 9157</span></p>

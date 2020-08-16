@@ -7,7 +7,7 @@
 * Zaiton Binti Ahmad Maideen 1523388
 
 #### Title: Taska Babeehive
-##### This web application is all about the reporting system applied by kindergarten or nursery.
+##### Description: This web application is all about the reporting system applied by kindergarten or nursery.
 
 
 #### The objective of the enhancement are to: 
@@ -16,8 +16,9 @@
 * Avoid data breach which can result in lawsuits and heavy fines
 
 Web Application Security Enhancement which includes:
+
 i. **Input Validation** 
-The input elements that are being validated are email and name at the server side. 
+The input elements that are being validated are email and name at the client side. 
 
 ii. **Authentication**
 Hashed password: by default, Laravel provides secure Bcrypt hashing for storing the user passwords
@@ -26,6 +27,7 @@ iii. **Authorization**
 * Role-based system: There are 3 roles for this system which are admin, teacher and parents. And each role will have a different view on the dashboard, which their privilege is limited to the task that they can do. 
 * Encrypted cookie: As the cookie is unsecure, the cookie will be encrypted on the web client and will be compared to the server-side to check the authentication to avoid from being tempered or stolen. 
 * Log out function: The user can log out with a single click
+* Enforce idle session time out: After 20 minutes being idle, the system will auto out log out and the user need to log in back into the system 
 
 iv. **XSS and CSRF Prevention**
 * Sanitize input by using "curly" braces {{ }} which display data passed to the Blade views by wrapping the variable in it. This is to prevent XSS attacks for from the input
@@ -36,7 +38,7 @@ v. **Database Security Principles**
 
 
 vi. **File Security Principles**
-Disable directory listing
+Disable directory listing: disable the web servers list the content of a directory from the unauthorized user by creating an empty index file _index.php_
 	
 #### References
 * Sullivan, B., & Liu, V. (2011). *Web application security: A beginner’s guide (1st ed.).* USA: McGraw Hill.

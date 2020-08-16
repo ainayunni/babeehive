@@ -35,8 +35,10 @@ v. **Database Security Principles** – How to prevent SQL injection. What are t
 Receive input as string instead of SQL queries as the input
 
 
+
 vi. **File Security Principles** – How do I prevent file leaks? What settings and configurations of the web server that you used to enhance your web server files?
 Disable directory listing
+By using indexing
 	
 References
 Sullivan, B., & Liu, V. (2011). *Web application security: A beginner’s guide (1st ed.).* USA: McGraw Hill.

@@ -1,4 +1,4 @@
-# Taska Babeehive
+# Babeehive
 ### INFO4601 Web App Security - Section 1
 
 #### Group members
